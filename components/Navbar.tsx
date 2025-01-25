@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { auth, signOut, signIn } from "@/auth";
 import { BadgePlus, LogOut } from "lucide-react";
-// import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const Navbar = async () => {
   const session = await auth();
@@ -10,7 +10,7 @@ const Navbar = async () => {
   //console.log(session);
 
   return (
-    <header className="px-5 py-3 bg-white shadow-sm font-work-sans">
+    <header className="px-8 py-3 bg-white shadow-sm font-work-sans fixed right-0 left-0 z-10 ">
       <nav className="flex justify-between items-center">
         <Link href="/">
           <Image src="/logo.png" alt="logo" width={144} height={30} />
@@ -38,13 +38,13 @@ const Navbar = async () => {
               </form>
 
               <Link href={`/user/${session?.id}`}>
-                {/* <Avatar className="size-10">
+                <Avatar className="size-10">
                   <AvatarImage
                     src={session?.user?.image || ""}
                     alt={session?.user?.name || ""}
                   />
                   <AvatarFallback>AV</AvatarFallback>
-                </Avatar> */}
+                </Avatar>
               </Link>
             </>
           ) : (
