@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postbuild": "sentry-cli releases new $SENTRY_RELEASE && sentry-cli releases finalize $SENTRY_RELEASE"
   },
   "packageManager": "npm@10.5.2",
   "overrides": {
